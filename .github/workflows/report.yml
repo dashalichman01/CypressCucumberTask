@@ -34,9 +34,7 @@ jobs:
       - name: Deploy Cucumber Reports
         run: |
           mkdir -p $HOME/reports
-          cp -r path/to/report1/* $HOME/reports/report1
-          cp -r path/to/report2/* $HOME/reports/report2
-          # Add more copy commands for other reports if needed
+          cp -r path/to/report1/* $HOME/cypress/cucumberReports
           echo 'Cucumber Reports Deployed' >> $HOME/reports/deploy.txt
         # If you have a gh-pages branch:
         # run: gh-pages -d $HOME/reports -m "Deploy Cucumber Reports"
