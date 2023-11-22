@@ -29,7 +29,7 @@ jobs:
       - name: Checkout
         uses: actions/checkout@v3
       - name: Deploy Cucumber Reports
-         run:|
+        run: |
            mkdir -p $HOME/reports
            cp -r cypress/cucumberReports* $HOME/reports/report
            echo 'Cucumber Reports Deployed' >> $HOME/reports/deploy.txt
