@@ -1,0 +1,7 @@
+{
+    "compilerOptions": {
+      "baseUrl": "https://www.saucedemo.com",
+      "esModuleInterop": true,
+      "module": "nodenext"
+    }
+  }
