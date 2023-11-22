@@ -52,11 +52,12 @@ When(/^User logout$/, () => {
 
 
 When(/^User click "([^"]*)"$/, (footerBtn: string) => {
-	inventoryPage.clickOnFooterBtn(footerBtn + ">a");
+	inventoryPage.clickOnFooterBtn(footerBtn);
 });
 
 
 Then(/^User is redirected to "([^"]*)"$/, (link) => {
+	
 	cy.url().should('contain', link)
 });
 

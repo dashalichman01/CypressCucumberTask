@@ -41,7 +41,7 @@ Feature: Shopping
         Then User is redirected to "<page>"
 
         Examples:
-        |footerBtn       | page                   | 
-        |.social_twitter | twitter.com/saucelabs  |
-        |.social_facebook| facebook.com/saucelabs |
+        | footerBtn       | page                   | 
+        | .social_twitter | twitter.com/saucelabs  |
+        | .social_facebook| facebook.com/saucelabs |
 

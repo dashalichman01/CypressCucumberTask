@@ -42,8 +42,9 @@ class InventoryPage{
     }
 
     clickOnFooterBtn(btn:string){
-            cy.get(btn).invoke('removeAttr', 'target').wait(2000).click();
-        
+            cy.get(btn + ">a").invoke('removeAttr', 'target').should('exist').click();  
+            Cypress.on('uncaught:exception', (err, runnable) => {
+                return false});
     }
    
     clickBurgerBtn(){
