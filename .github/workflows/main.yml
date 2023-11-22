@@ -19,6 +19,7 @@ jobs:
         uses: Cypress-io/github-action@v6
         with:
           start: npm start
+          browser: electron
       - name: Generate HTML Report
         run: node cucumber-html-report.js
         
