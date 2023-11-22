@@ -29,12 +29,12 @@ jobs:
       - name: Checkout
         uses: actions/checkout@v3
       - name: Deploy Cucumber Reports
-      #   run: |
-      #     mkdir -p $HOME/reports
-      #     cp -r cypress/cucumberReports* $HOME/reports/report
-      #     echo 'Cucumber Reports Deployed' >> $HOME/reports/deploy.txt
+         run:|
+           mkdir -p $HOME/reports
+           cp -r cypress/cucumberReports* $HOME/reports/report
+           echo 'Cucumber Reports Deployed' >> $HOME/reports/deploy.txt
         # If you have a gh-pages branch:
-        run: gh-pages -d $HOME/reports -m "Deploy Cucumber Reports"
+        # run: gh-pages -d $HOME/reports -m "Deploy Cucumber Reports"
 
       - name: Commit and push changes
         run: |
