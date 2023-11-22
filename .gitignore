@@ -1,5 +1,5 @@
-/node_modules/
-/cypress/cucumberReports/
-/cucumber-html-report.js/
-/cucumber-json-formatter.exe/
-/cucumber-messages.ndjson/
+node_modules
+cypress/cucumberReports
+cucumber-html-report.js
+cucumber-json-formatter.exe
+cucumber-messages.ndjson
