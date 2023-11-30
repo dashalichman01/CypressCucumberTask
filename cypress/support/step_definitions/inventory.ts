@@ -5,8 +5,8 @@ When(/^User click on item name$/, () => {
 	inventoryPage.openItemPage();
 });
 
-Then(/^cart item page is opened$/, () => {
-	cy.url().should('contain', '/inventory-item.html')
+Then(/^Cart item page is opened$/, () => {
+	cy.url().should('contain', '/inventory-item.html');
 });
 
 When(/^User add to cart product$/, () => {
@@ -17,7 +17,7 @@ When(/^User open cart$/, () => {
 	inventoryPage.openCart();
 });
 
-Then(/^Remove button is displsyed$/, () => {
+Then(/^'Remove' button is displsyed$/, () => {
 	inventoryPage.getRemoveBtn().should('be.visible');
 });
 
@@ -29,15 +29,15 @@ When(/^User remove product$/, () => {
 	inventoryPage.clickRemoveBtn();
 });
 
-Then(/^Add to cart button is displayed$/, () => {
+Then(/^'Add to cart' button is displayed$/, () => {
 	inventoryPage.getAddToCartBtn().should('be.visible');
 });
 
-When(/^User click burger menu button$/, () => {
+When(/^User click 'burger menu' button$/, () => {
 	inventoryPage.clickBurgerBtn();
 });
 
-When(/^User click logout button$/, () => {
+When(/^User click 'logout' button$/, () => {
 	inventoryPage.clickLogoutBtn();
 });
 
@@ -50,15 +50,14 @@ When(/^User logout$/, () => {
 	inventoryPage.clickLogoutBtn();
 });
 
-
-When(/^User click "([^"]*)"$/, (footerBtn: string) => {
+When(/^User click on "(Twitter|Facebook)" social media button$/, (footerBtn: string) => {
 	inventoryPage.clickOnFooterBtn(footerBtn);
+	cy.log(footerBtn)
 });
 
-
-Then(/^User is redirected to "([^"]*)"$/, (link) => {
+Then(/^User is redirected to "(.*)"$/, (link: string) => {
+	cy.url().should('contain', link);
 	
-	cy.url().should('contain', link)
 });
 
 

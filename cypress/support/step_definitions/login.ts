@@ -10,16 +10,21 @@ Given(/^User is on the main page$/, () => {
 	loginPage.openLoginPage();
 });
 
-When(/^User enter "([^"]*)" and "([^"]*)"$/, (username:string, password:string) => {
+When(/^User enter "([^"]*)" as username and "([^"]*)" as password$/, (username: string, password: string) => {
 	loginPage.setUsername(username);
 	loginPage.setPassword(password);
 });
 
-When(/^User click login button$/, () => {
+When(/^User enter "([^"]*)" and "([^"]*)"$/, (username: string, password: string) => {
+	loginPage.setUsername(username);
+	loginPage.setPassword(password);
+});
+
+When(/^User click 'login' button$/, () => {
 	loginPage.clickLoginBtn();
 });
 
-Then(/^User should see "([^"]*)"$/, (message:string) => {
+Then(/^User should see "([^"]*)" error message$/, (message: string) => {
 	loginPage.getErrorMsg().should('include', message);
 });
 
@@ -31,6 +36,6 @@ Then(/^User is redirected to the login page$/, () => {
 	cy.url().should('equal','https://www.saucedemo.com/') 
 });
 
-Then(/^login with correct data$/, () => {
+Then(/^User login with correct data$/, () => {
 	loginPage.login('standard_user', 'secret_sauce');
 });

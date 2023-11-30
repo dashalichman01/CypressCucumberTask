@@ -6,6 +6,8 @@ const cartBtn = '.shopping_cart_link';
 const cartBadge = '.shopping_cart_badge';
 const removeBtn = '#remove-sauce-labs-backpack';
 const itemName = '.inventory_item_name ';
+const twitterBtn = '.social_twitter>a';
+const facebookBtn = '.social_facebook>a';
 
 
 class InventoryPage{
@@ -41,10 +43,27 @@ class InventoryPage{
         return cy.get(itemName).first();
     }
 
+    getTwitterBtn(){
+        return cy.get(twitterBtn).invoke('removeAttr', 'target');
+    }
+
+    getFacebookBtn(){
+        return cy.get(facebookBtn).invoke('removeAttr', 'target');
+    }
+
     clickOnFooterBtn(btn:string){
-            cy.get(btn + ">a").invoke('removeAttr', 'target').should('exist').click();  
-            Cypress.on('uncaught:exception', (err, runnable) => {
-                return false});
+            switch(btn){
+                case 'Twitter':
+                    this.clickTwitterBtn();
+                    Cypress.on('uncaught:exception', (err, runnable) => {
+                        return false});
+                    break;
+                case 'Facebook':
+                    this.clickFacebookBtn();
+                    Cypress.on('uncaught:exception', (err, runnable) => {
+                        return false});
+                    break;
+            }
     }
    
     clickBurgerBtn(){
@@ -61,6 +80,14 @@ class InventoryPage{
 
     clickRemoveBtn(){
         this.getRemoveBtn().click();
+    }
+
+    clickTwitterBtn(){
+        this.getTwitterBtn().click();
+    }
+
+    clickFacebookBtn(){
+        this.getFacebookBtn().click();
     }
 
     openCart(){
