@@ -19,6 +19,7 @@ jobs:
         run: npx cypress run
       - name: Create report
         run: node cucumber-html-report.js
+        
       - name: Push to gh-pages
         uses: cpina/github-action-push-to-another-repository@main
         if: always()
