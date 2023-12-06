@@ -12,12 +12,25 @@ jobs:
       - name: Set up Node.js
         uses: actions/setup-node@v3
         with:
-          node-version: 14
+          node-version: '16'
       - name: Install dependencies
-        run: npm install
-      - name: Cypress.io
-        uses: Cypress-io/github-action@v6
+        run: npm ci
+      - name: Run Cypress Tests
+        run: npx cypress run
+      - name: Create report
+        run: node cucumber-html-report.js
+        
+      - name: Push to gh-pages
+        uses: cpina/github-action-push-to-another-repository@main
+        if: always()
+        env:
+          SSH_DEPLOY_KEY: ${{ secrets.SSH_DEPLOY_KEY }}
+          API_TOKEN_GITHUB: ${{ secrets.ACCESS_TOKEN }}
         with:
-          start: npm start
-     
+          source-directory: 'cypress/cucumberReports'
+          destination-github-username: 'dashalichman01'
+          destination-repository-name: 'CypressCucumberTask'
+          user-email: 'lichmandasha2001@gmail.com'
+          target-branch: gh-pages
+
     
