@@ -15,10 +15,8 @@ jobs:
           node-version: 14
       - name: Install dependencies
         run: npm ci
-      - name: Cypress.io
-        uses: Cypress-io/github-action@v6
-        with:
-          start: npm start
+      - name: Run Cypress Tests
+        run: npm start
       - name: Create report
         run: node cucumber-html-report.js
       - name: Push to gh-pages
