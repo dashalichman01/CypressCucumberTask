@@ -20,11 +20,15 @@ jobs:
       - name: Create report
         run: node cucumber-html-report.js
       - name: Push to gh-pages
-        run: |
-          git config --global user.email "dashalichman01@gmail.com"
-          git config --global user.name "Daryna"
-          git checkout --orphan gh-pages
-          git add cypress/cucumberReports
-          git commit -m "Update Cucumber Report"
-          git push origin gh-pages --force
+        uses: cpina/github-action-push-to-another-repository@main
+        if: always()
+        env:
+          API_TOKEN_GITHUB: ${{ secrets.ACCESS_TOKEN }}
+        with:
+          source-directory: 'cypress/cucumberReports'
+          destination-github-username: 'dashalichman01'
+          destination-repository-name: 'CypressCucumberTask'
+          user-email: 'lichmandasha2001@gmail.com'
+          target-branch: gh-pages
+
     
